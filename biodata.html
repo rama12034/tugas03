@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Biodata — Moh Fayrus Amrulloh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f8fb; --card:#ffffff; --accent:#2563eb; --muted:#6b7280; --radius:16px; --maxw:840px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,#eef2ff 0%,var(--bg) 100%); padding:40px; display:flex; align-items:center; justify-content:center; min-height:100vh;}
+    .container{width:100%; max-width:var(--maxw);}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:0 8px 30px rgba(16,24,40,0.08); overflow:hidden; display:grid; grid-template-columns: 260px 1fr;}
+    @media (max-width:720px){ .card{grid-template-columns:1fr} .left{padding:28px 20px} }
+
+    .left{background:linear-gradient(180deg,rgba(37,99,235,0.08),rgba(37,99,235,0.02)); padding:36px; display:flex; flex-direction:column; gap:18px; align-items:center;}
+    .avatar-img{width:120px; height:120px; border-radius:16px; object-fit:cover; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+    h1.name{margin:0; font-size:20px; text-align:center}
+    p.role{margin:0; color:var(--muted); font-size:14px; text-align:center}
+    .contact{width:100%; background:rgba(255,255,255,0.6); border-radius:12px; padding:12px}
+    .contact div{font-size:13px; color:var(--muted); margin-bottom:8px}
+
+    .right{padding:28px 32px}
+    .heading{display:flex; justify-content:space-between; align-items:center}
+    .heading h2{margin:0; font-size:18px}
+    .section{margin-top:18px}
+    .label{font-size:13px; color:var(--muted); margin-bottom:6px}
+    .value{font-size:15px; font-weight:600}
+    ul{padding-left:18px; margin:6px 0}
+    .meta{display:flex; gap:12px; flex-wrap:wrap}
+    .chip{background:var(--bg); padding:8px 10px; border-radius:10px; font-size:13px}
+
+    footer{margin-top:20px; text-align:center; color:var(--muted); font-size:13px}
+    .btn{display:inline-block; padding:10px 14px; border-radius:10px; background:var(--accent); color:white; text-decoration:none; font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="left">
+        <!-- Ganti src dengan URL atau path foto kamu -->
+        <img src="foto.jpg" alt="Foto Moh Fayrus Amrulloh" class="avatar-img">
+        <h1 class="name">Moh Fayrus Amrulloh</h1>
+        <p class="role">Pelajar — SMK Negeri 6 Jember</p>
+
+        <div class="contact" style="width:100%; margin-top:8px">
+          <div><strong>Tempat, Tgl Lahir</strong><br>Jember, 03 Agustus 2008</div>
+          <div><strong>Alamat</strong><br>Desa Klatakan, Kec. Tanggul, Kab. Jember</div>
+          <div><strong>Agama</strong><br>Islam</div>
+        </div>
+
+        <div style="width:100%; display:flex; gap:10px; margin-top:8px; justify-content:center">
+          <a class="btn" href="#contact">Hubungi</a>
+          <a class="btn" style="background:#10b981" href="#download" onclick="downloadHTML()">Download</a>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="heading">
+          <h2>Tentang Saya</h2>
+          <div style="color:var(--muted); font-size:13px">Kewarganegaraan: Indonesia</div>
+        </div>
+
+        <div class="section">
+          <div class="label">Kontak</div>
+          <div class="meta">
+            <div class="chip">085707295390</div>
+            <div class="chip">mohfayrus9@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="label">Pendidikan</div>
+          <div class="value">SMK Negeri 6 Jember</div>
+        </div>
+
+        <div class="section">
+          <div class="label">Hobi</div>
+          <ul>
+            <li>Volly</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <div class="label">Cita-cita</div>
+          <div class="value">Programmer</div>
+        </div>
+
+        <div class="section" id="contact">
+          <div class="label">Motto (Opsional)</div>
+          <div class="value">—</div>
+        </div>
+
+        <footer>
+          Dibuat otomatis • Moh Fayrus Amrulloh
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function downloadHTML(){
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'biodata_moh_fayrus.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
